@@ -1,0 +1,48 @@
+<img [src]="hotel | hotelImage" [alt]="hotel.name">
+
+<div class="p-4 bg-gray-100">
+  <p class="uppercase tracking-wide text-sm font-bold text-gray-700">Stars: {{hotel.stars}}</p>
+  <p class="text-3xl text-gray-900">{{hotel.name}}</p>
+  <p class="text-gray-700">{{hotel.address}}</p>
+  <div class="flex justify-between">
+    <div class="flex gap-4">
+      <button
+        [routerLink]="['/hotels/edit', hotel.id]"
+        class="text-black" type="button" data-ripple-light="true">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <div class="flex gap-4">
+      <button
+        [routerLink]="['/hotels', hotel.id]"
+        class="text-black" type="button" data-ripple-light="true">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="px-4 pt-2 pb-3 border-t border-gray-300 bg-gray-100">
+  <div class="text-xs uppercase font-bold text-gray-600 tracking-wide">Bads opinions</div>
+  <div class="flex items-center   flex flex-wrap gap-1">
+    <span *ngFor="let opinion of hotel.bad_things | slice:0:3" class="text-red-500">
+      <div class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-pink-700 bg-pink-100 border border-pink-300 ">
+        <div class="text-xs font-normal leading-none max-w-full flex-initial">{{opinion}}</div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="px-4 pt-2 pb-3 border-t border-gray-300 bg-gray-100">
+  <div class="text-xs uppercase font-bold text-gray-600 tracking-wide">Goods opinions</div>
+  <div class="flex items-center   flex flex-wrap gap-1">
+    <span *ngFor="let opinion of hotel.good_things | slice:0:3" class="text-lime-500">
+      <div class="flex justify-center items-center m-1 font-medium py-1 px-2 bg-white rounded-full text-green-700 bg-green-100 border border-green-300 ">
+        <div class="text-xs font-normal leading-none max-w-full flex-initial">{{opinion}}</div>
+      </div>
+    </span>
+  </div>
+</div>
+
+
+

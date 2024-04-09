@@ -1,1 +1,7 @@
-<p>list-hotels works!</p>
+<div class="flex items-center justify-center p-4">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+    <div *ngFor="let hotel of hotels" class="bg-white shadow-xl rounded-lg overflow-hidden">
+      <hotels-card-hotel [hotel]="hotel"></hotels-card-hotel>
+    </div>
+  </div>
+</div>

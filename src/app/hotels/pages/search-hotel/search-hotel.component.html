@@ -1,1 +1,42 @@
-<p>search-hotel works!</p>
+
+<div class="flex items-center justify-center h-screen">
+  <div class="w-11/12 sm:w-11/12 md:w-8/12 lg:w-6/12 backdrop-blur-sm bg-white/40 p-6 rounded-lg shadow-sm border-violet-200 border">
+    <div class="w-full flex justify-between items-center p-3">
+      <mat-form-field>
+        <mat-label>Find your hotel...</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="searchInput"
+          (input)="searchHotel()"
+          [matAutocomplete]="auto"
+        />
+
+        <mat-autocomplete autoActiveFirstOption
+          #auto="matAutocomplete"
+          (optionSelected)="onSelectedOption( $event )"
+          >
+          <mat-option *ngFor="let hotel of hoteles" [value]="hotel">
+            {{ hotel.name }}
+          </mat-option>
+
+          <mat-option
+            *ngIf="hoteles.length === 0 && searchInput.value && searchInput.value.length > 0"
+            value="">
+            No se encontró nada con el término {{ searchInput.value }}
+          </mat-option>
+        </mat-autocomplete>
+
+      </mat-form-field>
+      <button
+        [routerLink]="['/hotels/new-hotel']"
+        class="flex mb-6 bg-gradient-to-r from-violet-300 to-indigo-300  border border-fuchsia-00 hover:border-violet-100 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">
+        <span class="text-white">New hotel</span>
+    </button>
+    </div>
+
+    <div *ngIf="selectedHotel" class="grid grid-cols-1">
+      <hotels-card-hotel [hotel]="selectedHotel"></hotels-card-hotel>
+    </div>
+  </div>
+</div>
