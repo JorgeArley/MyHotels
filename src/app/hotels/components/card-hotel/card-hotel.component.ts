@@ -11,6 +11,6 @@ export class CardHotelComponent implements OnInit {
   @Input() public hotel!:Hotel;
 
   ngOnInit(): void {
-    if (!this.hotel) throw  Error('Hero property is required.');
+    if (!this.hotel) throw  Error('Hotel property is required.');
   }
 }

@@ -19,7 +19,12 @@
         <div class="my-3 text-stone-400 tracking-wider text-center">
           <div class="relative w-full">
             <input formControlName="name"
-              type="text" class="w-full text-stone-400 backdrop-blur-sm bg-white/20 py-2 pl-5 pr-4 text-red rounded-lg focus:outline-none border-2 border-gray-100 focus:border-violet-300 transition-colors duration-300" placeholder="Name...">
+              [ngClass]="{
+                'bg-green-100': currentHotel.stars == '5',
+                'bg-pink-200': currentHotel.stars == '1',
+                'bg-amber-200': currentHotel.stars == '3',
+              }"
+              type="text" class="w-full text-stone-400 backdrop-blur-sm py-2 pl-5 pr-4 text-red rounded-lg focus:outline-none border-2 border-gray-100 focus:border-violet-300 transition-colors duration-300" placeholder="Name...">
           </div>
         </div>
 

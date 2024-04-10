@@ -9,21 +9,35 @@
   "hotels": [
     {
       "id": "1",
-      "name": "Hilton69",
+      "name": "Hilton",
       "address": "Calle 3",
       "stars": "5",
       "creation_date": "6-15-22, 9:03 AM",
       "good_things": [
-        "piscina",
-        "playa",
-        "mar"
+        "pool",
+        "beach"
       ],
       "bad_things": [
-        "basura",
-        "baños",
-        "yucas"
+        "garbage",
+        "toilets"
       ],
       "url_image": ""
+    },
+    {
+      "id": "2",
+      "name": "Sheraton",
+      "address": "Calle 5",
+      "url_image": "https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+      "stars": "4",
+      "creation_date": "8-10-22, 8:45 AM",
+      "good_things": [
+        "spa",
+        "restaurants"
+      ],
+      "bad_things": [
+        "noise",
+        "slow wifi"
+      ]
     },
     {
       "id": "3",
@@ -33,12 +47,12 @@
       "stars": "4",
       "creation_date": "8-10-22, 8:45 AM",
       "good_things": [
-        "vistas panorámicas",
-        "gimnasio"
+        "panoramic views",
+        "gym"
       ],
       "bad_things": [
-        "pequeñas habitaciones",
-        "falta de estacionamiento"
+        "small rooms",
+        "lack of parking"
       ]
     },
     {
@@ -49,12 +63,12 @@
       "stars": "3",
       "creation_date": "9-5-22, 10:15 AM",
       "good_things": [
-        "desayuno gratuito",
-        "ubicación conveniente"
+        "free breakfast",
+        "convenient location"
       ],
       "bad_things": [
-        "mobiliario antiguo",
-        "ruidoso por las noches"
+        "old furniture",
+        "noisy at night"
       ]
     },
     {
@@ -65,12 +79,12 @@
       "stars": "4",
       "creation_date": "10-1-22, 1:20 PM",
       "good_things": [
-        "servicio de habitaciones",
-        "instalaciones modernas"
+        "room service",
+        "modern facilities"
       ],
       "bad_things": [
-        "elevadores lentos",
-        "poca variedad en el desayuno"
+        "slow elevators",
+        "limited breakfast variety"
       ]
     },
     {
@@ -81,12 +95,12 @@
       "stars": "5",
       "creation_date": "11-3-22, 2:45 PM",
       "good_things": [
-        "spa de lujo",
-        "personal amable"
+        "luxury spa",
+        "friendly staff"
       ],
       "bad_things": [
-        "altos precios del minibar",
-        "ruido de la calle"
+        "high minibar prices",
+        "street noise"
       ]
     },
     {
@@ -97,12 +111,12 @@
       "stars": "3",
       "creation_date": "12-8-22, 4:10 PM",
       "good_things": [
-        "tarifas asequibles",
-        "piscina cubierta"
+        "affordable rates",
+        "indoor pool"
       ],
       "bad_things": [
-        "mobiliario desgastado",
-        "ruidoso en las áreas comunes"
+        "worn-out furniture",
+        "noisy common areas"
       ]
     },
     {
@@ -113,12 +127,12 @@
       "stars": "5",
       "creation_date": "1-15-23, 8:00 AM",
       "good_things": [
-        "excelente servicio de conserjería",
-        "spa de clase mundial"
+        "excellent concierge service",
+        "world-class spa"
       ],
       "bad_things": [
-        "altos precios",
-        "poca privacidad en las habitaciones"
+        "high prices",
+        "lack of privacy in rooms"
       ]
     },
     {
@@ -129,12 +143,12 @@
       "stars": "4",
       "creation_date": "2-20-23, 11:30 AM",
       "good_things": [
-        "vistas al mar",
-        "variedad gastronómica"
+        "ocean views",
+        "gastronomic variety"
       ],
       "bad_things": [
-        "servicio de limpieza irregular",
-        "wifi intermitente"
+        "irregular cleaning service",
+        "intermittent wifi"
       ]
     },
     {
@@ -145,12 +159,12 @@
       "stars": "5",
       "creation_date": "3-18-23, 10:00 AM",
       "good_things": [
-        "habitaciones lujosas",
-        "restaurantes de alta cocina"
+        "luxurious rooms",
+        "fine dining restaurants"
       ],
       "bad_things": [
-        "precios exorbitantes",
-        "demoras en el check-in"
+        "exorbitant prices",
+        "check-in delays"
       ]
     },
     {
@@ -161,12 +175,28 @@
       "stars": "5",
       "creation_date": "4-22-23, 9:15 AM",
       "good_things": [
-        "servicio de mayordomo",
-        "jardines exuberantes"
+        "butler service",
+        "lush gardens"
       ],
       "bad_things": [
-        "tarifas de estacionamiento elevadas",
-        "congestión en el lobby"
+        "high parking fees",
+        "lobby congestion"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Waldorf Astoria2",
+      "address": "Calle 15",
+      "url_image": "https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+      "stars": "5",
+      "creation_date": "4-22-23, 9:15 AM",
+      "good_things": [
+        "affordable prices",
+        "convenient locations"
+      ],
+      "bad_things": [
+        "basic facilities",
+        "noisy and crowded"
       ]
     }
   ]

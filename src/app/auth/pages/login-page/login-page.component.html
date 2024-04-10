@@ -5,12 +5,13 @@
       <div class="space-y-6">
         <div class="">
           <input
-            class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
-            type="" placeholder="Email">
+            value="jorge@gmail.com"
+            class="w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+            type="email" placeholder="Email">
         </div>
 
         <div class="relative">
-          <input placeholder="Password" type="password'"
+          <input placeholder="Password" type="password'" value="123456"
             class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
         </div>
 
@@ -23,7 +24,7 @@
           </div>
         </div>
         <div>
-          <button type="submit"
+          <button type="submit" (click)="onLogin()"
             class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
             Sign in
           </button>

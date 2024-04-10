@@ -66,7 +66,8 @@ export class NewHotelComponent {
   onSubmit():void {
 
     if ( this.hotelForm.invalid ) return;
-
+    let date = new Date();
+    this.dateFormat(date)
     if (typeof this.currentHotel.bad_things === 'string') {
       let bad_things = this.hotelForm.get('bad_things')?.value as unknown as string;
       this.currentHotel.bad_things = bad_things.split(',');
@@ -76,8 +77,6 @@ export class NewHotelComponent {
       let good_things = this.hotelForm.get('good_things')?.value as unknown as string;
       this.currentHotel.good_things = good_things.split(',');
     }
-
-
 
     if ( this.currentHotel.id ) {
       this.hotelService.updateHotel( this.currentHotel )
@@ -92,6 +91,7 @@ export class NewHotelComponent {
       return;
     }
 
+    this.currentHotel.creation_date = this.dateFormat(new Date);
     this.hotelService.addHotel( this.currentHotel )
       .subscribe( hotel => {
         this.router.navigate(['/hotels/edit', hotel.id ]);
@@ -127,6 +127,20 @@ export class NewHotelComponent {
           })
       }
     });
+  }
+
+  dateFormat(date: Date): string {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear().toString().slice(2);
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const am_pm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    var formato_date = `${month}-${day}-${year}, ${hours}:${minutes < 10 ? '0' : ''}${minutes} ${am_pm}`;
+    return formato_date
   }
 
 
