@@ -26,7 +26,6 @@ export class HotelPageComponent {
       .subscribe( hotel => {
         if ( !hotel ) return this.router.navigate([ '/hotels/list' ]);
         this.hotel = hotel;
-        console.log(hotel)
         return;
       })
   }

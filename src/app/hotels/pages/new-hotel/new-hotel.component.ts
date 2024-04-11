@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { filter, switchMap } from 'rxjs';
 import { Hotel } from '../../interfaces/hotel.interface';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,23 +20,25 @@ export class NewHotelComponent {
     { amount: '4' },
     { amount: '5' },
   ];
-
-  public hotelForm = new FormGroup({
-    id:            new FormControl<string>(''),
-    name:          new FormControl<string>(''),
-    address:       new FormControl<string>(''),
-    stars:         new FormControl<string>(''),
-    creation_date: new FormControl<string>(''),
-    good_things:   new FormControl<string[]>([]),
-    bad_things:    new FormControl<string[]>([]),
-    url_image:     new FormControl<string>(''),
-  });
-
   constructor(
     private hotelService: HotelService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-  ) {}
+    private fb: FormBuilder,
+  ) { }
+
+  public hotelForm: FormGroup = this.fb.group({
+    id: [''],
+    name: ['', [Validators.required, Validators.minLength(1)]],
+    address: ['', [Validators.required, Validators.minLength(1)]],
+    stars: ['', [Validators.required, Validators.maxLength(1)]],
+    creation_date: [''],
+    good_things: ['', [Validators.required, Validators.minLength(1)]],
+    bad_things: ['', [Validators.required, Validators.minLength(1)]],
+    url_image: [''],
+  });
+
+
 
   get currentHotel(): Hotel {
     const hotel = this.hotelForm.value as Hotel;
@@ -45,27 +47,25 @@ export class NewHotelComponent {
 
   ngOnInit(): void {
 
-    if ( !this.router.url.includes('edit') ) return;
+    if (!this.router.url.includes('edit')) return;
 
     this.activatedRoute.params
       .pipe(
-        switchMap( ({ id }) => this.hotelService.getHotelById( id ) ),
-      ).subscribe( hotel => {
+        switchMap(({ id }) => this.hotelService.getHotelById(id)),
+      ).subscribe(hotel => {
 
-        if ( !hotel ) {
+        if (!hotel) {
           return this.router.navigateByUrl('/');
         }
 
-        this.hotelForm.reset( hotel );
+        this.hotelForm.reset(hotel);
         return;
       });
   }
 
 
 
-  onSubmit():void {
-
-    if ( this.hotelForm.invalid ) return;
+  onSubmit(): void {
     let date = new Date();
     this.dateFormat(date)
     if (typeof this.currentHotel.bad_things === 'string') {
@@ -92,9 +92,9 @@ export class NewHotelComponent {
     }
 
     this.currentHotel.creation_date = this.dateFormat(new Date);
-    this.hotelService.addHotel( this.currentHotel )
-      .subscribe( hotel => {
-        this.router.navigate(['/hotels/edit', hotel.id ]);
+    this.hotelService.addHotel(this.currentHotel)
+      .subscribe(hotel => {
+        this.router.navigate(['/hotels/edit', hotel.id]);
         Swal.fire({
           title: "Good job!!",
           text: `Hotel "${this.currentHotel.name}" Created!!!`,
@@ -104,7 +104,7 @@ export class NewHotelComponent {
   }
 
   onDeleteHotel() {
-    if ( !this.currentHotel.id ) throw Error('Hotel id is required');
+    if (!this.currentHotel.id) throw Error('Hotel id is required');
 
     Swal.fire({
       title: "Are you sure?",
@@ -116,8 +116,8 @@ export class NewHotelComponent {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        this.hotelService.deleteHotelById( this.currentHotel.id )
-          .subscribe( () => {
+        this.hotelService.deleteHotelById(this.currentHotel.id)
+          .subscribe(() => {
             Swal.fire({
               title: "Deleted!",
               text: `The hotel "${this.currentHotel.name}" has been deleted.`,
@@ -143,5 +143,8 @@ export class NewHotelComponent {
     return formato_date
   }
 
+  inputValidate(nameInpt: string): boolean | undefined {
+    return this.hotelForm.get(nameInpt)?.invalid && this.hotelForm.get(nameInpt)?.touched;
+  }
 
 }

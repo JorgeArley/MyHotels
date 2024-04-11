@@ -13,3 +13,9 @@ Seguir los siguientes pasos para correr localmente.
 5. Para ingresar a la aplicacion solo es necesario dar click en "sign in".
 6. Si se da click en logout, debe volver a ingresar desde el login, 
    esta aplicacion tiene un guard que valida si existe un token guardado en localstorage.
+
+
+## Testing
+
+Para correr los test unitarios:
+1. Ejecutar ```npm run test```
