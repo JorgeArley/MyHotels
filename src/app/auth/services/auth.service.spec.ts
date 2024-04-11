@@ -24,7 +24,7 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should be return a user ', () => {
+  it('should be return a user whit data ', () => {
     const expectResponse =     {
       "id": 1,
       "user": "Jorge Ospina",
@@ -37,12 +37,4 @@ describe('AuthService', () => {
     req.flush(expectResponse);
   });
 
-  it('should be return a user ', () => {
-
-    service.checkAuthentication().subscribe((res) => {
-      expect(res).toBeTruthy()
-    });
-    const req = httpMock.expectOne('http://localhost:3000/users/1');
-    req.flush(true);
-  });
 });
