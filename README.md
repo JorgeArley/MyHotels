@@ -1,7 +1,7 @@
 # MyHotels
 
 ## Dev ```Este proyecto tiene un backend que solo corre local con la dependencia json-server```
-        ```Esta aplicacion no corre en produccion, por falta de un backend para el mismo```
+        ```Esta aplicacion solo corre localmente```
 
         ```La aplicación está construida en Angular version "16.2.12" y node "16.15.1"```
 
